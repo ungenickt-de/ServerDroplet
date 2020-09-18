@@ -1,0 +1,597 @@
+sadmin: 
+  create: "&c/sadmin create [name] [type]"
+  delete: "&c/sadmin delete [name]"
+  stop: "&c/sadmin stop [name] <force>"
+  start: "&c/sadmin start [name]"
+  command: "&c/sadmin command [name] [cmd]"
+  listen:
+    fail: "&c/sadmin listen [name]"
+    success: "&eNow listening to %0"
+  unlisten:
+    fail: "&cYour not listening to any consoles."
+    success: "&aListening stopped."
+  dataset: "&c/sadmin dataset [name] [key] [value]"
+  data:
+    fail: "&c/sadmin data [name]"
+    success: "&e%0 metadata values --"
+    value: "&b%0 -> \"%1\""
+  datasave: "&c/sadmin datasave [name]"
+  economy:
+    fail: "&c/sadmin economy [give/take] [player] [amount] - Give / Take money from a player"
+    success: "&aDone."
+  help:
+    1: "&e/sadmin create [name] - Create a server"
+    2: "&e/sadmin delete [name] - Delete a server"
+    3: "&e/sadmin start [name] - Start a server"
+    4: "&e/sadmin stop [name] <force> - Stop a server"
+    5: "&e/sadmin command [name] [command] - Send a command to a servers console"
+    6: "&e/sadmin shutdown - Shuts down all servers and the server manager"
+    7: "&e/sadmin listen [name] - Listen to a servers console"
+    8: "&e/sadmin unlisten - Stop listening to a console if your listening to one"
+    9: "&e/sadmin data [name] - Print the metadata out for a server"
+    10: "&e/sadmin dataset [name] [key] [value] - Set a metadata value for a server"
+    11: "&e/sadmin datasave [name] - Save the metadata for a server"
+    12: "&e/sadmin economy [give/take] [player] [amount] - Give / Take money from a player"
+    13: "&e/sadmin shutdownempty - Turn off empty servers"
+    14: "&e/sadmin startrandom [amount] - Start X number of servers"
+  unknown: "&cUnknown command %0"
+response_codes:
+  server_name_invalid: "&cYour server's name must be in the range of 3 to 20 characters and can only contain letters, numbers, and hyphens."
+  server_name_length_invalid: "&cYour server's name can only be 3-20 characters in length. "
+  server_name_taken: "&cThat server name is already taken."
+  server_created: "&bYour server has been created."
+  server_type_unknown: "&cUnknown server type '%0'"
+  server_unknown: "&cCould not find server with the name %0."
+  server_removed: "&bYour server has been deleted."
+  server_not_running: "&cThat server is offline."
+  server_force_stopped: "&bServer forcefully stopped!"
+  server_stopped: "&cServer stopped."
+  server_already_running: "&cThat server is already online."
+  server_starting: "&bServer starting..."
+  server_command_executed: "&aCommand executed."
+  server_unknown_error: "&cAn unknown error has occured."
+  memory_limit_reached: "&cToo many servers online, could not start another. Please try again later."
+  server_renamed: "&bServer renamed!"
+  metadata_save: "&bMetadata saved!"
+  metadata_set: "&bValue set."
+  server_banned: "&cServer has been banned."
+generic:
+  unknown_player: "&cThat player is not online."
+  store_url: "store.playerislands.com"
+  timed_reward: "&bThanks for playing! &bYou have been rewarded &d%0 &bcoins."
+  timed_reward_bonus: "&bThanks for playing! &bYou have been rewarded &d%0 &bcoins. &6&l(+%1 Bonus)"
+  timed_reward_friend_bonus: "&bThere is a VIP or MVP player in your server so you have received bonus coins!"
+  vote: "&bThank you for voting! Your &6reward&b is a vote crate. You can open it in the hub"
+  donate: "&bThank you so very much for donating! Enjoy your %6%0&b coins!"
+  store_message: "&aCheck out our store at: %0"
+  peak: "&cPeak time rules have been enabled! Empty servers will close more quick for now."
+  discord: "&dDiscord URL: https://discord.gg/qqU4mx2"
+  rule: "&aAbout PlayerIslands Rules: https://playerislands.com/rules"
+connect: 
+  not_found: "&cThat server no longer exists."
+  offline: "&cThat server is currently offline."
+  starting: "&bThat server is starting up, please wait."
+  success: "&bConnecting to &d%0"
+  already_in_hub: "&cYou're already in a hub!"
+server_command:
+  no_servers: "&cThere are no servers."
+  offline: "&c%0 is currently offline."
+shop:
+  no_items: "&cThere are currently not items being sold in the shop. Please check back later."
+hub: 
+  server_started: "&aYour server has started up successfully."
+  vote:
+    help: "&cUsage: /vote [server]"
+    time: "&cYou have already voted for this server today!"
+    success: "&bVoted for &d%0"
+  setfeatured:
+    removed: "&aFeatured server removed."
+    set: "&aFeatured server set."
+  popular_servers:
+    title: "&6Popular &dIslands"
+    lore: 
+      1: "&7Click to view a list of islands"
+      2: "&7that are popular right now"
+  your_server: 
+    title: "&bYour &dIsland"
+    lore: "&7Click to manage your island."
+  join_message:
+    1: "&aWe encourage you to join Discord because we have important server-related announcements on Discord."
+    2: "&aDiscord: https://discord.gg/qqU4mx2"
+server_shop_item:
+  owner_cant_buy: "&aThe server owner cannot buy items."
+  purchased: "&aPurchased %0"
+  need_coins: "&cYou need more coins!"
+  purchased_to_owner: "&e%0&a purchased &b%1"
+  vote_only: "You can get with /pivote."
+  failed_player: "&cFailed to buy items."
+  failed_owner: "&cFailed to sell items. Please restart server."
+realm_command:
+  tutorial: "&bTo customize your island, use the command &d/island"
+input:
+  config: "&ePlease enter in the new value: &c(Enter 'cancel' to exit)"
+announcer:
+  vote: "&ePlease vote for our server at &dhttps://playerislands.com/vote"
+  donate: "&eCheck out our store: &astore.playerislands.com"
+  premium: "&eWant to help support a island? Check out our store: &6store.playerislands.com"
+  ultra: "&eWant to use Multi-verse? Check out Ultra-Premium at our store: &6store.playerislands.com"
+  coins: "&eNeed more Island&6&lGem&e? Check out our store: &6store.playerislands.com"
+  amazon: "&aCheck out our Twitter! @PlayerIslands"
+  twitter: "&aCheck out our Twitter! @PlayerIslands"
+  rule: "&aFollow the rules and enjoy have fun! &ehttps://playerislands.com/rules"
+menu:
+  edit_store_item:
+    invalid_price: "&cYou must enter a valid number."
+    select_icon_menu: "Select a new icon"
+  server_menu:
+    server_stopped: "&bYour server has been stopped."
+    could_not_stop_server: "&cFailed to stop server, please contact an administrator."
+    server_not_running: "&cYour server is currently offline."
+    server_starting: "&bYour server is starting..."
+    already_online: "&cYour server is already online."
+    failed: "&cFailed to start server, please contact an administrator."
+    created: "&bYour server has been created! It is now starting up. &d(Click here to join)"
+  config_edit:
+    upload: "&eLeft-Click Upload"
+    download: "&aShift-Left-Click Download"
+    delete: "&c&lShift-Right-Click Delete"
+  premium:
+    need_coins: "&cYou do not have enough Island&6&lCoins to purchase that package."
+    purchasing: "&bPurchasing...."
+    purchased: "&bPurchase successful."
+    failed: "&cFailed to buy."
+  realm:
+    op_reset: "&bServer operators reset."
+    server_icon_fail: "&cChanging a server's icon is a premium only feature."
+    resource_pack_fail: "&cChanging a server's resource pack is a ultra-premium only feature."
+    earnings:
+      fail: "&cYou have no earnings yet."
+      claiming: "&bClaiming earnings..."
+      claimed: "&bClaimed &d%0 &bcoins."
+      tax: "&bYou paid &d%0 &bcoins in tax!"
+      failed: "&cFailed to earnings."
+menu_items:
+  refresh: "&bRefresh Server"
+  online_time: "&6Uptime"
+  stop_server: "&cStop Server"
+  start_server: "&aStart Server"
+  goto_server: "&aConnect to Server"
+  server_starting: 
+    title: "&eServer starting..."
+    lore: "&7Your server is starting up..."
+  kill_server:
+    title: "&cKill Server"
+    lore: "&cKills your server. Only use when it doesn't start"
+  server_stopping: 
+    title: "&aServer stopping..."
+    lore: "&7Your server is turning off..."
+  rename_realm:
+    title: "&bRename Server"
+    lore: "&7Click to rename your island"
+  delete_server:
+    title: "&cDelete Server"
+    lore: 
+      1: "&cWarning"
+      2: "&ePremium time is not kept"
+      3: "&ewhen a server is deleted."
+  change_world:
+    title: "&aChange World Types"
+  toggle_command: 
+    title: "&aToggle Command Blocks"
+    lore: 
+      1: "&7Command Blocks are %0"
+      enabled: "&aenabled"
+      disabled: "&cdisabled"
+  toggle_flight: 
+    title: "&aToggle Flight Kick"
+    lore: 
+      1: "&7Flight Kick are %0"
+      enabled: "&aenabled"
+      disabled: "&cdisabled"
+  delete_server_confirm:
+    cancel: "&cClick here to cancel"
+    confirm: "&aConfirm"
+  manage: 
+    create: "&aCreate Server"
+    anvil_name: "Server Name"
+  realm:
+    maxplayers:
+      set: "&bChange Max Players"
+      number: "&cInvalid number"
+      zero: "&cCan't be set to 0 or less"
+      over: "&cThe maximum number of people assigned to the server has been exceeded."
+      success: "&aChanged. applies to after reboot."
+    functions: "&bEdit Functions"
+    skript: "&bEdit Skripts"
+    massive: "&bEdit MassiveCore"
+    download: "&bDownload your world"
+    world: 
+      title: "&eManage Worlds"
+    plugins:
+      title: "&aPlugins"
+      lore: "&7Click to edit the server's plugins."
+    reset_op: "&cReset Server OP's"
+    resource_pack: 
+      title: "&aResource Pack"
+      lore: "&7Current Pack: %0"
+      none: "&7None"
+    edit_game_rules: "&aEdit Gamerules"
+    config: "&aEdit Plugin Configurations"
+    change_motd: 
+      title: "&aChange MOTD"
+      lore: 
+        1: "&7Change your server's MOTD"
+        2: "&7which will appear in the server list."
+        3: "&cPremium servers can use colors!"
+    icon: 
+      title: "&aChange Server Icon"
+      lore: 
+        1: "&7Select a new server icon"
+        unlocked: "&aClick to change server icon."
+        locked: "&cRequires premium."
+    configure_shop:
+      title: "&aConfigure Server Shop"
+      lore: "&7Configure your server's donation store"
+    restart: "&cRestart Server"
+    premium:
+      title: "&aAdd Premium Time"
+      lore: 
+        1: "&7Add premium days to your server."
+        2: "&b&nBenefits"
+        3: "&e1. &eIncreased player capacity."
+        4: "&e2. &aIncreased server performance."
+        5: "&e3. &6Ability to become a featured server."
+        6: "&e4. &dChange your server's icon."
+        7: "&e5. &aServer will always be online."
+        8: "&e6. &bUse colors in your MOTD."
+    featured_server:
+      title: "&aBecome Featured"
+      lore: 
+        1: "&7Purchase featured time for your server"
+        2: "&e1. Always at the top of the server list"
+        3: "&e2. Players earn extra coins on your server"
+    earnings:
+      title: "&aClaim Earnings"
+      lore: 
+        1: "&7Claim you island store's earnings"
+        2: "&eCurrent Earnings"
+        tax_1: "&cTax: %0%"
+        tax_2: "&cUltra-Premium servers don't pay tax!"
+    dev:
+      opened: "&aIsland Visible"
+      closed: "&cIsland Hidden"
+      lore: 
+        1: "&7Toggle whether your island will"
+        2: "&7appear in lists. Your friends can"
+        3: "&7join by typing &b/s %0"
+    coin_bonus: 
+      title: "&6Coin Bonus"
+      status: "&7Current Bonus: &b%0%"
+      none: "&cNone"
+      note: "&6Purchase a bonus at"
+    danger:
+      disabled:
+        title: "&aDanger Mode"
+        lore:
+          1: "&aDanger mode is disabled"
+          2: "&aSome operations such as file deletion are restricted."
+          3: "&c&lWe can not take any responsibility!"
+      enabled:
+        title: "&cDanger Mode"
+        lore:
+          1: "&cDanger mode is enabled"
+          2: "&cNo restriction such as file deletion."
+          3: "&c&lWe can not take any responsibility!"
+    delete_folder:
+      confirm: "&aConfirm"
+      cancel: "&cClick here to cancel"
+    menu_permission:
+      title: "&aMenu Permission"
+      lore:
+        1: "&7Add a user who can open the menu by specifying the player"
+        2: "&cWarning"
+        3: "&cThis allows other users to interact with the server"
+        4: "&cIt is also possible to delete the server data by enabling it"
+        5: "&cYou should only enable it if you trust the other person"
+      item: "&aAdd Player"
+      add: "&a%0 has been added."
+      remove: "&a%0 has been removed."
+      error: "&cIs this player is online?"
+  page_entry: 
+    online: "&7Online Players &a%0&7/%1"
+    votes: "&bVotes &d%0"
+    owner: "&f&lOwner: %0"
+    language: "&bLanguage: "
+    multi: "&6&lCoin Multiplier: &b&l%0%"
+  server_list:
+    random_server: 
+      title: "&bRandom Server"
+      lore: "&7Go to a random server"
+    show_all: "&eShow all &dIslands"
+    sort:
+      vote: "&eBy Votes"
+      vote_lore: "&eChange to online sorting."
+      online: "&By Online"
+      online_lore: "&eChange to voting order."
+  shop_config: 
+    add:
+      title: "&aAdd Package"
+      lore: "&7Add a new package to the shop."
+    remove: 
+      title: "&cRemove Package"
+      lore: "&7Remove an package from the shop."
+    edit: 
+      title: "&eEdit Package"
+      lore: "&7Edit an package in the shop."
+      icon_selected: "&a&lSelected"
+    view:
+      title: "&aView Package"
+      lore: "&7View your server's donation shop."
+    enter_name: "Item Name"
+  remove_action:
+    title: "&cClick to Remove"
+  shop:
+    price: "&ePrice: &6&n%0&b&l Island&6&lCoins"
+    price_sale: "&ePrice: &c&m%0&r &a&l&n%1&b&l Island&6&lCoins"
+    sale: "&6&l%0% &b&lOFF!"
+    when_you_buy: "&lWhen you purchase you receive: "
+    nothing: "&4Nothing..."
+  premium: 
+    cost_title: "&bCost"
+    cost: "&d%0 Island&6&lCoins"
+    duration: "&a+ %0 week(s) of premium."
+    percent_off: "&6%0% OFF!"
+    iron: "&7Iron Package"
+    diamond: "&bDiamond Package"
+    gold: "&6Gold Package"
+    no_premium: "&cNo Premium"
+    click_to_buy: "&7Click a package to buy premium."
+    activated: "&aPremium active"
+    time: "&7%0 days, &7%1 hours, and %2 minutes left."
+    coins: "&bYou have &d%0 coins&b."
+    need_coins: "&6Need Coins?"
+    check_store_at: "&aCheck out our store at"
+  featured:
+    duration: "&a+ %0 hour(s) of featured time."
+    not_featured: "&cNot Featured"
+    click_to_buy: "&7Click a package to purchase time."
+    activated: "&aFeatured active!!"
+    activated_other: "&aAnother server is already featured..."
+    time: "&7%1 hours, and %2 minutes left."
+  plugin_menu:
+    dependencies: "&c&nDependencies"
+    enabled: "&aEnabled"
+    disabled: "&cDisabled"
+    ultra_only: "&6&nRequires Ultra-Premium"
+    ultra_only_desc: "&7Purchase at %0"
+  language:
+    title: "&bSelect Server Language"
+    lore: 
+      1: "&7Only players with the same language"
+      2: "&7will be shown your server."
+plugins:
+  ASkyBlock: "&7Creates a skyblock world, access with /island"
+  ChatFormat: "&7Formats chat to look nicer and include prefix/suffix"
+  ChestShop: "&7Create chest shops for your players"
+  Citizens: "&7Place down NPC's"
+  CitizensCMD: "&7Add commands to your NPC's"
+  ClearLag: "&7Lower lag on your server"
+  CoreProtect: "&7Protect your server from griefers"
+  CratesPlus: "&7Create crates for your players to open"
+  Essentials: "&7Essential commands for running a server"
+  EssentialsProtect: "&7Simple area protection system"
+  EssentialsSpawn: "&7Edit your server spawn"
+  Factions: "&7Allow your players to create factions"
+  GroupManagerX: "&7Permission managing system"
+  HealthBar: "&7Display health under players names"
+  HolographicDisplays: "&7Create holograms"
+  KitAdder: "&7Create and edit kits for your players"
+  Lockette: "&7Allow players to secure their chests, doors, etc."
+  LunaChat: "&7Plugin for Japanese Users. English speakers need not use."
+  MassiveCore: "&7Required for factions"
+  NametagEdit: "&7Edit your players name tags"
+  ObsidianBreaker: "&7Allows TNT to destroy obsidian"
+  OldPvP: "&7Enable 1.8 PvP"
+  PermissionsEX: "&7Recommended permissions management system"
+  Punish: "&7Punish your players"
+  Shopkeepers: "&7Create villager shops"
+  VanishNoPacket: "&7Go invisible from other players"
+  Vault: "&7Manages permissions and economy. Highly Recommended"
+  VoxelSniper: "&7World Edit-like plugin"
+  WorldBorder: "&7Add a world border to your server"
+  WorldEdit: "&7Incredibly useful world editing plugin"
+  WorldGuard: "&7Protect regions of your server"
+  floAuction: "&7Create auctions for your players"
+  iConomy Recreation: "&7Economy system"
+  mcMMO: "&7Allows players to level up their skills and use abilities"
+  NoCheatPlus: "&cPossibility that lag will increase"
+  Skript: "&7You can customize anything."
+  FMS: "&cPlugin for PlayerIslands Staff"
+language:
+  en_us: "English"
+  ja_jp: "Japanese"
+upload:
+  saving: "&aSaving world..."
+  zipping: "&aZipping world up..."
+  uploading: "&aUploading world..."
+  url: "&aDownload link: &d%0"
+  fail: "&cFailed to upload world..."
+  cooldown: "&cPlease wait %0 seconds before you do that."
+world_types:
+  flat: "&eFlat World"
+  normal: "&aNormal World"
+  void: "&dVoid World"
+  upload: "&6Upload World"
+  uploading_warning: 
+    1: "&cWARNING &9BETA FEATURE"
+    2: "&7Expect bugs, some links may not work"
+    3: "&eMax files size: 50 megabytes"
+donation:
+  thanks: "&6Thanks for donating! Enjoy your &a%0&6 coins"
+  crates: "&6Thanks for donating! Enjoy your &a%0&6 crates"
+config_edit:
+  fail_up: "&cFailed to retrieve config from url..."
+  fail_down: "&cFailed to upload config..."
+  bad_syntax: "&cInvalid YAML syntax! %0"
+  retrieve_success: "&aConfig successfully retrieved! Reload the plugin or restart your island to use it."
+  unknown_error: "&cError: %0"
+  bad_url: "&cInvalid URL!"
+  upload_success: "&aYour config has been uploaded to %0"
+  uploading: "&eUploading..."
+player_click_hub:
+  no_servers: "&e%0&c doesn't own any servers."
+  owns: "&e%0&a is the owner of &d%1"
+crates:
+  name:
+    global: "&d&lPlayer&b&lIslands %0 &eCrate"
+    player: "&a%0 &eCrate"
+  global_names:
+    common: "&fCommon"
+    starter: "&aStarter"
+    rare: "&9Rare"
+    legendary: "&6Legendary"
+    gift: "&cGift"
+    event: "&cEvent"
+    unknown: "&4Error"
+    donation: "&d&lDonation"
+    vote: "&eVote"
+  no_crates: "&cYou don't have any crates right now."
+  click_to_open: "&7Click to open"
+  random_crate: "&lRandom Mystery Box"
+  get: "&aYou got a new crate! Open it in the hub."
+  coupon: "&d&PlayerIslands Coupon"
+  code: "&aCode: %0"
+  spend_at: "&astore.playerislands.com"
+  opening: "%0&a is opening a %1 crate!"
+  open_once:
+    title: "&aOpen all at once (%0)"
+    result: "&aYou have opened %0 crates!"
+    result_coin: "&aYou got %0 coins!"
+    result_box: "&aYou got %0 mystery boxes!"
+    result_gem: "&aYou got %0 gems!"
+hub_items:
+  compass: "&dServer Navigator &7(Right Click)"
+  chest: "&bCrates &7(Right Click)"
+  ingot: "&6Twitter"
+  netherstar: "&aCosmetic Menu &7(Right Click)"
+global_ban:
+  expire_time: "&cExpire Time %0"
+  days: "%0 days"
+  hours: "%0 hours"
+  minutes: "%0 minutes"
+  seconds: "%0 seconds"
+  announcement: "&c%0 has been globally banned from PlayerIslands by %1"
+file_browser:
+  create: "&aNew File"
+donate_powers:
+  cooldown: "&cCooldown %0seconds"
+  click_to_use: "&aClick to use!"
+  firework:
+    title: "&aFirework"
+    lore: "&7Launch firework"
+  lava:
+    title: "&cLava"
+    lore: "&7Launch from foot"
+  heart:
+    title: "&cHeart"
+    lore: "&7Launch from head"
+  totem:
+    title: "&aSlime"
+    lore: "&7launch from head"
+  trail:
+    title: "&aSelect Trail"
+    lore: "&7Currently: &a%0"
+    selected: "&a%0&7 selected"
+    no_perm: "&cYou can't use this trail.(Need Pro or Legend)"
+    names:
+      none: "&cNone"
+      enchant: "&7Enchant"
+      color: "&7Color"
+      hearts: "&cHeart"
+      water: "&6Water"
+      flame: "&cFlame"
+      image: "&7Image"
+      custom: "&eCustom Image"
+  not_donator: "&cDonator only."
+  image_size_bad: "&aImage size must not exceed 32x32"
+resource_pack:
+  title: "Resource pack"
+  accept: "&aEnable"
+  yes_lore: "&6Resource pack available on this server"
+  deny: "&cIgnore"
+  no_lore: "&6If you want, re-join server."
+koukoku:
+  title: "&aAdvertise"
+  lore:
+    1: "&6Advertise this server's Motd"
+    2: "&6to PlayerIslands's players"
+    require: "&cNeed Ultra-Premium"
+    cooldown: "&cCooldown: %0 minutes"
+  purchase: "&eYou can buy Ultra-Premium on menu."
+  prefix: "&6&l[Advertise] "
+price_type:
+  change: "&eChange Purchase Method"
+  change_lore: "&7Current &6%0"
+  gems_warning:
+    1: "&cGem items must"
+    2: "&cconform to Mojang EULA."
+ultra_premium_purchase:
+  please_wait: "&6&l[Buy] &9Purchasing... Please wait."
+  done: "&6&l[Buy] &aSuccess! You can use Ultra Premium plugin by rebooting the server."
+  purchase: "&aPurchase Ultra Premium"
+  failed: "&6&l[Buy] &cFailed to purchasing. Gem returned to the server. Please try again later."
+  failed2: "&6&l[Buy] &cInternal server error occurred. Please contact to staff."
+  purchase_lore:
+    1: "&7Buy Ultra Premium for 1 Month"
+    2: "&bPrice 1000 Gem"
+    3: "&b%0Gem can be used"
+    4: "&7You can earn gems"
+    5: "&7by selling gem item at server shop."
+    6: "&7%0 days, %1 hours, %2 minutes Left"
+hiderank:
+  perm: "&cYou don't have permission."
+  turn_off: "&cPrefix has been disabled. &7You can enable with /hiderank"
+  turn_on: "&aPrefix has been enabled. &7You can disable with /hiderank"
+vanish:
+  perm: "&cYou don't have permission"
+  turn_on: "&aVanish has been enabled."
+  turn_off: "&cVanish has been disabled."
+donor_chat:
+  perm: "&cYou don't have any donor rank. &7You can buy rank from store.playerislands.com"
+  turn_off: "&cDonor Chat has been disabled. &7You can enable with /kfc on"
+  turn_on: "&aDonor Chat has been enabled. &7You can disable with /kfc off"
+report:
+  wait: "&a/prreport is only once in 10 minutes. Cooldown: %0 seconds"
+  sent: "&aReport has been sent to staff."
+  perm: "&cYou don't have permission."
+skript_error: "&cSkript has been blocked by PlayerIslands Security (If you think this error is wrong, please contact the staff.) Details： %0"
+file_create: "Unable to create file (%0)"
+file_outside: "Unable to read/write file (%0)"
+socket: "Unable to connect outside network."
+rule_menu:
+  title: "About Rules"
+  lore: "If you don't agree, you cannot connect to server."
+  accept: "&aAccept"
+  deny: "&cDeny"
+  accepted: "&aThanks for accepting rules. Have fun!"
+  need: "&cYou need to agree to the rules first. If accept GUI doesn't appear, please reconnect."
+official_broadcasts:
+  dvz:
+    starting: "&d[PlayerIslands] &aDwarfsVsZombies &7is starting! &3Click here to join the game!"
+  anni:
+    starting: "&d[PlayerIslands] &aAnnihilation &7is starting! &3Click here to join the game!"
+backup:
+  title: "&aBackup"
+  lore: "&eBackup server data"
+  processing: "&cProcessing..."
+  create: "&aNew Backup"
+  please_wait: "&ePlease wait..."
+  complete: "&aComplete."
+  name: "Backup name"
+  restore: "&aRestore to backup"
+  download: "&bDownload backup"
+  delete: "&cDelete Backup"
+  remaining: "&cRemaining: %0 left"
+  purchase: "&cYou can make 5 backups with Ultra-Premium."
+  confirm: "Confirm"
+  cancel: "Cancel"

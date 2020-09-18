@@ -1,0 +1,206 @@
+sadmin: 
+  create: "&c/sadmin create [name] [type]"
+  delete: "&c/sadmin delete [name]"
+  stop: "&c/sadmin stop [name] <force>"
+  start: "&c/sadmin start [name]"
+  command: "&c/sadmin command [name] [cmd]"
+  listen:
+    fail: "&c/sadmin listen [name]"
+    success: "&eNow listening to %0"
+  unlisten:
+    fail: "&cYu no longa listen to da consoles."
+    success: "&aStopd da listenin."
+  dataset: "&c/sadmin dataset [name] [key] [value]"
+  data:
+    fail: "&c/sadmin data [name]"
+    success: "&e%0 metadata values --"
+    value: "&b%0 -> \"%1\""
+  datasave: "&c/sadmin datasave [name]"
+  economy:
+    fail: "&c/sadmin economy [give/take] [player] [amount] - Give / Take money from a player"
+    success: "&aDone."
+  help:
+    1: "&e/sadmin create [name] - Create a server"
+    2: "&e/sadmin delete [name] - Delete a server"
+    3: "&e/sadmin start [name] - Start a server"
+    4: "&e/sadmin stop [name] <force> - Stop a server"
+    5: "&e/sadmin command [name] [command] - Send a command to a servers console"
+    6: "&e/sadmin shutdown - Shuts down all servers and da server manager"
+    7: "&e/sadmin listen [name] - Listen to a servers console"
+    8: "&e/sadmin unlisten - Stop listenz to da console if yur listening to one"
+    9: "&e/sadmin data [name] - Printz da metadata out for a server"
+    10: "&e/sadmin dataset [name] [key] [value] - Set a metadata value for a server"
+    11: "&e/sadmin datasave [name] - Save da metadata for a server"
+    12: "&e/sadmin economy [give/take] [player] [amount] - Give / Take money from a player"
+  unknown: "&cUnknown command %0"
+response_codes: 
+  server_name_invalid: "&cYur serva name canz only containz lettas, numbas and da '-' line thingy ma bob."
+  server_name_length_invalid: "&cYur serva name canz only b 3-20 charactaz in bigness. "
+  server_name_taken: "&cThat serva name is taken by anodar catz server."
+  server_created: "&bYur serva is now made."
+  server_type_unknown: "&cWhat iz server type '%0'... i no understand"
+  server_unknown: "&cI cahnt find serva with da namez %0."
+  server_removed: "&bYur serva gone forevs :("
+  server_not_running: "&cDat serva is offline, sad kitteh :("
+  server_force_stopped: "&bMEOW!!! we stoppd da serva with FORCEE"
+  server_stopped: "&cServa is now offs."
+  server_already_running: "&cDat serva iz already onlines. duh..."
+  server_starting: "&bServa is startin! Soon all da kittehs will play!"
+  server_command_executed: "&aComand been sentz!"
+  server_unknown_error: "&coops dar waz errorrr... sad kitteh"
+  server_renamed: "&bServer namez changed!"
+  metadata_save: "&bMetadataz saved!"
+  metadata_set: "&bValuez set."
+generic:
+  unknown_player: "&cDat playa not on serva"
+  store_url: "store.playerislands.com"
+  timed_reward: "&bThankz fur playing with us kittehs!! &bWe give u &d%0 &bcoinz."
+connect: 
+  not_found: "&cDat serva no found :( sad kitteh"
+  offline: "&cDat serva is offline, sah kitteh :("
+  starting: "&bDat serva is startin! Soon all da kittehs will play!"
+  success: "&bJoiningz da serva &d%0"
+  already_in_hub: "&cYur already joined dah hub."
+server_command:
+  no_servers: "&cNo servers :( no kittehs to play with :("
+  offline: "&c%0 is now offlinez :("
+hub: 
+  server_started: "&ayur serva has been made onlinez :D"
+  vote:
+    help: "&cType dis: /vote [server]"
+    time: "&cU hav already voted todai :("
+    success: "&bU voted fur d%0"
+  setfeatured:
+    removed: "&aDat serva iz no longa featured!"
+    set: "&aDat serva iz now featured!"
+server_shop_item:
+  owner_cant_buy: "&cYu own dis serva! Yu cant buy stuffz :("
+  purchased: "&aU now has %0"
+  need_coins: "&cU no has enuf coinz :("
+menu:
+  edit_store_item:
+    invalid_price: "&cU must enta a realz numba..."
+  server_menu:
+    server_stopped: "&bUr serva haz been stoppd."
+    could_not_stop_serer: "&cServa no stopped :( plz speakz 2 admin kittehs."
+    server_not_running: "&cUr serva is offs :( U musts start it."
+    server_starting: "&bUr serva is startin!!!"
+    already_online: "&cUr serva is already onlien. duh..."
+    failed: "&cServa no started :( plz speakz 2 admin kittehs."
+    created: "&bYur serva haz been made! WOOOO! Itz startin up!. &d(Clik meh to joinz)"
+  config_edit:
+    not_a_number: "&cU must enta a realz numba..."
+    cant_edit: "&cDat value cahnt be changed :("
+  premium:
+    need_coins: "&cU no has enuf coinz :("
+    purchasing: "&bBuyin..."
+    purchased: "&bU now ownz it!!"
+  realm:
+    op_reset: "&bBye byez all dah old ops!"
+    server_icon_fail: "&cU no has premium :( U cant change server icon :("
+    earnings:
+      fail: "&cU earnz no coins yet!"
+      claiming: "&bTakin da coinz!"
+      claimed: "&bU gotz &d%0 &bcoinz."
+menu_items:
+  stop_server: "&cStop Serva"
+  start_server: "&aStart Serva"
+  server_starting: 
+    title: "&eServa is startin!."
+    lore: "&7Yur serva is startin :D"
+  rename_realm:
+    title: "&bChange serva namez"
+    lore: "&7Clik meh 2 change serva namez."
+  delete_server:
+    title: "&cDelete serva"
+    lore: 
+      1: "&cKITTEH WARNIN"
+      2: "&ePremium time will be bye bye"
+      3: "&eWhenz a yur serva is deleted :("
+  delete_server_confirm:
+    cancel: "&cNuh delete serva! CANCELZ!"
+    confirm: "&aYus delete serva! CONFIRM!"
+  manage: 
+    create: "&aMakez serva!"
+    anvil_name: "Serva namez"
+  realm: 
+    plugins:
+      title: "&aPluginz"
+      lore: "&7Clik meh 2 add serva pluginz."
+    reset_op: "&aDeletez Da Ops"
+    edit_game_rules: "&aChange Game Rulez"
+    config: "&aChange Plugen Settinz"
+    change_motd: 
+      title: "&aChange MOTD Ov Serva"
+      lore: 
+        1: "&7Change Yur Servas MOTD"
+        2: "&7which appearz in da serva list"
+        3: "&cPremium kittehs can use colors!!!"
+    icon: 
+      title: "&aChange Servas Iconz"
+      lore: 
+        1: "&7Select a serva icon"
+        unlocked: "&aClik meh to change servas icon."
+        locked: "&cRequirez premiumz."
+    configure_shop:
+      title: "&aChange serva shop"
+      lore: "&7Clik meh to change da serva shop."
+    restart: "&cRestart Serva"
+    premium:
+      title: "&aAdd Premiumz"
+      lore: 
+        1: "&7Add premium dayz to yur serva."
+        2: "&b&nBenefits"
+        3: "&e1. &eHold more kittehs."
+        4: "&e2. &aHaz more performance."
+        5: "&e3. &6Becomez da featured serva."
+        6: "&e4. &dChange yur serva icon."
+        7: "&e5. &aServa will always be on."
+        8: "&e6. &bUse pretteh colorz in da MOTD."
+    earnings:
+      title: "&aClaim Earningz"
+      lore: 
+        1: "&7Claim yur realm shopz earnins"
+        2: "&eYur earninz"
+  page_entry: 
+    online: "&7Online Kittehs &a%0&7/%1"
+    votes: "&bVotez &d%0"
+  server_list:
+    random_server: 
+      title: "&bRandom Serva"
+      lore: "&7Clik meh 2 joinz random serva"
+  shop_config: 
+    add:
+      title: "&aAdd Shopz Package Thingy"
+      lore: "&7Add a new package to da shop."
+    remove: 
+      title: "&cRemove Shopz Package Thingy"
+      lore: "&7Remove an package from da shop."
+    edit: 
+      title: "&eEdit Shopz Package Thingy"
+      lore: "&7Edit an package in da shop."
+    view:
+      title: "&aView Da Package Thingy"
+      lore: "&7Look at yur servas donation shop."
+    enter_name: "Enter itemz namez:"
+  remove_action:
+    title: "&cClik meh to Remove"
+  shop:
+    price: "&eCostz: &6&n%0&b&l Realm&6&lCoinz"
+    Whenz_you_buy: "&lWhenz U buy u get: "
+    nothing: "&4Nothing :("
+  premium: 
+    cost_title: "&bCostz"
+    cost: "&d%0 realm coinz"
+    duration: "&a+ %0 week(s) of premiumz."
+    percent_off: "&6%0% MONIES OFFZ!"
+    iron: "&7Ironz Package"
+    diamond: "&bDiamondz Package"
+    gold: "&6Goldz Package"
+    no_premium: "&cU No Has Premium :("
+    click_to_buy: "&7Clik a package to buy premiumz."
+    activated: "&aPremium activez"
+    time: "&7%0 dayz, &7%1 hourz, and %2 minutez left of da premiumz."
+    coins: "&bU haz &d%0 coinz&b."
+    need_coins: "&6Want Coinz???"
+    check_store_at: "&aBuy demz from da store @"

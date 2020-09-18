@@ -1,0 +1,49 @@
+name: PlayerIslands
+version: ${git.commit.id.describe}
+main: com.playerrealms.droplet.ServerDroplet
+author: bowser123467
+depend: [PacketMenu, ProtocolLib]
+softdepend: [Skellett]
+load: STARTUP
+
+commands:
+    sadmin:
+        aliases: [sa]
+        description: Alias for /realm
+        usage: /sadmin help
+        permission: playerrealms.commands.sadmin
+    prban:
+        description: Global ban command (Only works in the hub)
+        usage: /prban [player] [play,create,both] [sec,min,hour,day] [time] <reason>
+        permission: playerrealms.commands.prban
+    server:
+        aliases: [s, swarp, join]
+        description: Change servers
+        usage: /server [name]
+    island:
+        aliases: [realm]
+        description: Manage your server and its plugins
+        usage: /playerislands
+    hub:
+        description: Return to PlayerIslands Hub
+        aliases: [lobby]
+    store:
+        aliases: [buy]
+        description: Open your current island's store
+        usage: /store
+    pivote:
+        usage: /pivote
+    kifumenu:
+        description: Open the fun menu
+        aliases: [funmenu, fun]
+    pireport:
+        usage: /pireport [msg]
+        aliases: [report, pihelp]
+    ac:
+       usage: /ac [msg]
+    hiderank:
+        usage: /hiderank
+        aliases: [hr]
+    vanish:
+        usage: /vanish <player>
+        aliases: [v]

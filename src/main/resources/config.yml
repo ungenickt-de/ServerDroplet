@@ -1,0 +1,10 @@
+servers:
+   - {
+         ip: localhost,
+         port: 8484
+     }
+pastebin: 
+redis: localhost
+mysql:
+    ip: localhost
+    password: 

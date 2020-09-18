@@ -1,0 +1,12 @@
+Multiverse-Core
+Multiverse-Inventories
+Multiverse-Portals
+ParticleHats
+Train_Carts
+Jobs
+ChatControl
+PlotSquared
+Magic
+FastAsyncVoxelSniper
+LibsDisguises
+DiscordSRV
